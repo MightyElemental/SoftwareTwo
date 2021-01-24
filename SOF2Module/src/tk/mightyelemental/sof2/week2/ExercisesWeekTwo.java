@@ -1,6 +1,6 @@
 package tk.mightyelemental.sof2.week2;
 
-public class Exercises {
+public class ExercisesWeekTwo {
 
     // Exercise 2
     public static void calcOrderCost(float bananas) {
