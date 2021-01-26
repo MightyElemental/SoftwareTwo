@@ -1,0 +1,33 @@
+// Task 1
+y=n!
+y=e^n
+y=n^3
+y=n^2
+y=n ln n
+y=n
+y=ln n
+
+// Task 2
+1. O(n^2)
+2. O(ln n)
+3. O(n!)
+4. O(n^3)
+5. O(n)
+6. O(n ln n)
+7. O(e^n)
+
+// Task 3
+O(2^n)
+
+// Task 4
+O(n)
+
+// Task 5
+1. on size 5 - 10 comparisons are needed at worst
+2. O(n^2)
+3. It's within the 2nd loop so it is called O(n^2) times. It can be very costly.  
+
+// Task 6
+1. on size 5 - 10 comparisons are needed at worst
+2. O(n^2)
+3. It's not within the 2nd loop so it is called O(n) times. It's less costly than Insertion sort
