@@ -11,7 +11,16 @@ public class ExercisesWeekThree {
 	System.out.println(Arrays.toString(TextUtils.split("Hello!World!This is a test,string", "! ,")));
 
 	System.out.println(Arrays.deepToString(rasterise(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }, 2)));
-	
+
+	int[] interpolated = LinearInterpolation.resample(new int[] { 1, 5, 13, 21 }, 3);
+	System.out.println(Arrays.toString(interpolated));
+	System.out.println();
+
+	int[][] image = { { 1, 50, 20, 20 }, { 100, 255, 150, 30 }, { 10, 255, 130, 210 }, { 10, 255, 130, 210 } };
+	int[][] interpImage = LinearInterpolation.resample(image);
+	for (int[] row : interpImage) {
+	    System.out.println(Arrays.toString(row));
+	}
     }
 
     // Exercise 1
