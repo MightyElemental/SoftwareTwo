@@ -1,7 +1,6 @@
 package tk.mightyelemental.sof2.week7.seminar;
 
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.PriorityQueue;
 
 public class HuffmanMain {
@@ -10,19 +9,17 @@ public class HuffmanMain {
 		String input = "hello world!";
 		System.out.println("Input: " + input);
 		Node tree = buildHuffmanTree(input);
-		System.out.println(tree);
-		System.out.println(tree.getCharacterCodes());
+		System.out.println("HTree: " + tree);
+		System.out.println("Codes: " + tree.getCharacterCodes());
 
 		String encoded = encodeString(input);
 		System.out.println("Encod: " + encoded);
-		System.out.println("Decod:" + decodeEncodedString(encoded, tree));
+		System.out.println("Decod: " + decodeEncodedString(encoded, tree));
 	}
 
 	public static Node buildHuffmanTree(String input) {
 		HashMap<Character, Integer> counts = getCharCounts(input);
-
 		PriorityQueue<Node> pq = getQueue(counts);
-		// System.out.println(pq);
 
 		while (pq.size() >= 2) {
 			Node n = new Node();
@@ -52,21 +49,17 @@ public class HuffmanMain {
 		Node curr = huffmanTree;
 		for (char c : encoded.toCharArray()) {
 			if (c == '0') {
-				if (curr.leftChild != null) {
+				if (curr.leftChild != null)
 					curr = curr.leftChild;
-				}
-				if (curr.letter != 0) {
-					sb.append(curr.letter);
-					curr = huffmanTree;
-				}
 			} else if (c == '1') {
-				if (curr.rightChild != null) {
+				if (curr.rightChild != null)
 					curr = curr.rightChild;
-				}
-				if (curr.letter != 0) {
-					sb.append(curr.letter);
-					curr = huffmanTree;
-				}
+			} else {
+				throw new IllegalArgumentException("The encoded string must contain only 0's and 1's");
+			}
+			if (curr.letter != 0) { // If the node is a leaf
+				sb.append(curr.letter);
+				curr = huffmanTree;
 			}
 		}
 		return sb.toString();
@@ -114,11 +107,9 @@ class Node {
 	}
 
 	public void defineCodes() {
-		if (leftChild != null) {
+		if (letter == 0) { // If the node is not a leaf, it has two children
 			leftChild.code = code + "0";
 			leftChild.defineCodes();
-		}
-		if (rightChild != null) {
 			rightChild.code = code + "1";
 			rightChild.defineCodes();
 		}
@@ -129,7 +120,7 @@ class Node {
 
 	public HashMap<Character, String> getCharacterCodes() {
 		HashMap<Character, String> map = new HashMap<Character, String>();
-		if (letter != 0) {
+		if (letter != 0) { // If the node is a leaf
 			map.put(letter, code);
 		} else {
 			map.putAll(leftChild.getCharacterCodes());
@@ -139,7 +130,7 @@ class Node {
 	}
 
 	public String toString() {
-		if (letter != 0) {
+		if (letter != 0) { // If the node is a leaf
 			return String.format("%s-%c=%d", code, letter, value);
 		}
 		return String.format("%s-[%s, %s]", code.isEmpty() ? "top" : code, leftChild.toString(), rightChild.toString());
@@ -150,21 +141,9 @@ class Node {
 		value += lc.value;
 	}
 
-	public void addLeftNode(Entry<Character, Integer> poll) {
-		Node lc = new Node(poll.getKey());
-		lc.value = poll.getValue();
-		addLeftNode(lc);
-	}
-
 	public void addRightNode(Node rc) {
 		this.rightChild = rc;
 		value += rc.value;
-	}
-
-	public void addRightNode(Entry<Character, Integer> poll) {
-		Node rc = new Node(poll.getKey());
-		rc.value = poll.getValue();
-		addRightNode(rc);
 	}
 
 }
