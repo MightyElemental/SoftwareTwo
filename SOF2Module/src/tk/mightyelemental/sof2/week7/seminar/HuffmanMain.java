@@ -13,8 +13,18 @@ public class HuffmanMain {
 		System.out.println("Codes: " + tree.getCharacterCodes());
 
 		String encoded = encodeString(input);
+		System.out.println("ASCII: " + stringToBinary(input));
 		System.out.println("Encod: " + encoded);
 		System.out.println("Decod: " + decodeEncodedString(encoded, tree));
+	}
+
+	public static String stringToBinary(String input) {
+		byte[] bytes = input.getBytes();
+		StringBuilder sb = new StringBuilder();
+		for (byte b : bytes) {
+			sb.append(String.format("%8s", Integer.toBinaryString(b)).replace(' ', '0'));
+		}
+		return sb.toString();
 	}
 
 	public static Node buildHuffmanTree(String input) {
