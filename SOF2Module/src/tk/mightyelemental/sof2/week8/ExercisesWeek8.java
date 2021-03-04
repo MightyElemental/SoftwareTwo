@@ -35,6 +35,10 @@ public class ExercisesWeek8 {
 		System.out.println(lls.toString());
 		System.out.println(lls.size());
 		lls.add("Something");
+		lls.add("Another");
+		lls.add("GRR");
+		System.out.println(lls.toString());
+		lls.remove("Something");
 		System.out.println(lls.toString());
 	}
 

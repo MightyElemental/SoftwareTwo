@@ -45,7 +45,11 @@ public class LinkedListSet<E> implements ISet<E> {
 		Node<E> n = nodeOfObj(obj);
 		if (n == null)
 			return false;
-		n.parent.child = n.child;
+		// If the element is the head element, replace the head.
+		if (n.parent == null)
+			head = n.child;
+		else
+			n.parent.child = n.child;
 		n.destroy();
 		count--;
 		return true;
