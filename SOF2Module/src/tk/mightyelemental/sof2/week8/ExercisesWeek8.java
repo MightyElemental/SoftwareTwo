@@ -17,6 +17,8 @@ public class ExercisesWeek8 {
 		System.out.println(as);
 		as.remove("loop");
 		System.out.println(as);
+		as.clear();
+		System.out.println(as);
 
 		LinkedListSet<String> lls = new LinkedListSet<String>();
 		lls.add("Something");
