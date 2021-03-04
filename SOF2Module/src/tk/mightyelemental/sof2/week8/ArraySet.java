@@ -25,8 +25,8 @@ public class ArraySet<E> implements ISet<E> {
 
 	@Override
 	public void clear() {
-		for (; top > 0; --top)
-			data[top - 1] = null;
+		for (; top > 0;)
+			data[--top] = null;
 	}
 
 	@Override
