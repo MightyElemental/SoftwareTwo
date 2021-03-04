@@ -27,11 +27,13 @@ public class ExercisesWeek8 {
 		lls.add("Asdf");
 		lls.add("Another");
 		System.out.println(lls.toString());
+		System.out.println(lls.size());
 		lls.remove("GRR");
 		lls.remove("Another");
 		System.out.println(lls.toString());
 		lls.clear();
 		System.out.println(lls.toString());
+		System.out.println(lls.size());
 		lls.add("Something");
 		System.out.println(lls.toString());
 	}

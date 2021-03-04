@@ -10,6 +10,7 @@ public class LinkedListSet<E> implements ISet<E> {
 		if (head == null) {
 			head = new Node<E>(obj);
 			tail = head;
+			count++;
 			return true;
 		}
 		if (this.contains(obj))
@@ -18,6 +19,7 @@ public class LinkedListSet<E> implements ISet<E> {
 		n.parent = tail;
 		tail.child = n;
 		tail = n;
+		count++;
 		return true;
 	}
 
@@ -25,6 +27,7 @@ public class LinkedListSet<E> implements ISet<E> {
 	public void clear() {
 		head = null;
 		tail = null;
+		count = 0;
 	}
 
 	@Override
@@ -44,6 +47,7 @@ public class LinkedListSet<E> implements ISet<E> {
 			return false;
 		n.parent.child = n.child;
 		n.destroy();
+		count--;
 		return true;
 	}
 
