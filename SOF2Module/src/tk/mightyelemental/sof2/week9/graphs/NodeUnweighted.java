@@ -52,7 +52,8 @@ public class NodeUnweighted<T> extends Node<T> {
 	}
 
 	/**
-	 * Invoked by an {@link IGraph} object to store a new edge in a node.<br>
+	 * Invoked by the {@link Node#graphObj} object to store a new edge in the
+	 * node.<br>
 	 * Stores a newly-created edge.
 	 * 
 	 * @param n the node the edge points to

@@ -24,18 +24,20 @@ public abstract class Node<T> {
 	}
 
 	/**
-	 * The Graph object the node belongs to. This is to prevent inconsistencies when
-	 * constructing various Graph types.
+	 * The Graph object the node belongs to. This is used to prevent inconsistencies
+	 * when constructing various Graph types.
 	 */
 	protected IGraph<T> graphObj;
 
 	/** The value contained within the node */
 	protected T value;
 
+	/** @return The value contained within the node */
 	public T getValue() {
 		return value;
 	}
 
+	/***/
 	public abstract Node<T>[] getAdjacentNodes();
 
 	public IGraph<T> getGraph() {

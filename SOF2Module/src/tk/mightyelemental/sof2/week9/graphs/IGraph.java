@@ -25,8 +25,10 @@ public interface IGraph<T> {
 	 * Add a node to the graph
 	 * 
 	 * @param n the node to add
+	 * @return True if the node was added, False if the node was already in the
+	 *         graph
 	 */
-	public void addNode(Node<T> n);
+	public boolean addNode(Node<T> n);
 
 	/**
 	 * Removes a specified node

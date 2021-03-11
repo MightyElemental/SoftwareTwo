@@ -47,14 +47,19 @@ public class GraphUnweightedUndirected<T> implements IGraph<T> {
 	 * Add a node to the graph
 	 * 
 	 * @param n the node to add
+	 * @return True if the node was added, False if the node was already in the
+	 *         graph
 	 * @throws IllegalArgumentException If a type other than NodeUnweighted is
 	 *                                  passed.
 	 */
 	@Override
-	public void addNode(Node<T> n) {
+	public boolean addNode(Node<T> n) {
 		if (!(n instanceof NodeUnweighted))
 			throw new IllegalArgumentException("Node type must be unweighted");
+		if (nodes.contains(n))
+			return false;
 		nodes.add((NodeUnweighted<T>) n);
+		return true;
 	}
 
 	@Override
@@ -66,6 +71,11 @@ public class GraphUnweightedUndirected<T> implements IGraph<T> {
 		return true;
 	}
 
+	/**
+	 * Remove a specified node from other nodes.
+	 * 
+	 * @param n the node to remove from other nodes
+	 */
 	private void removeNodeFromAdjacentNodes(NodeUnweighted<T> n) {
 		for (NodeUnweighted<T> node : n.getAdjacentNodes()) {
 			node.removeEdgesTo(n);
