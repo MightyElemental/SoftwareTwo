@@ -10,7 +10,6 @@ public class MainWeek9 {
 		GraphUnweightedUndirected<Integer> guwud = new GraphUnweightedUndirected<Integer>();
 
 		NodeUnweighted<Integer> nu = guwud.newNode(10);
-		NodeUnweighted<Integer> nu2 = new NodeUnweighted<Integer>(guwud, 6);
 
 	}
 
