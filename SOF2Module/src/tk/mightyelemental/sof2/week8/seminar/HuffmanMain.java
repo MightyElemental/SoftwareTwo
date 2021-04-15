@@ -1,4 +1,4 @@
-package tk.mightyelemental.sof2.week7.seminar;
+package tk.mightyelemental.sof2.week8.seminar;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;
